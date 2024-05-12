@@ -45,7 +45,7 @@ const BookList: React.FC<Props> = ({ books }) => {
   // Predefined array of colors for genre tags
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
       {books.map((book) => (
         <Link to={`/books/${book.id}`} state={book} key={book.id}>
           <div

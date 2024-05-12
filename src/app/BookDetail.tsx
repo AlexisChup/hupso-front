@@ -19,23 +19,33 @@ const BookDetail: React.FC = () => {
   return (
     <div>
       {book ? (
-        <div className="max-w-xl mx-auto mt-8 p-4 bg-white rounded-lg shadow-md">
-          <h1 className="text-3xl font-bold mb-4">{book.title}</h1>
-          <p className="text-gray-600 mb-2">Author: {book.author}</p>
-          <p className="text-gray-600 mb-2">
-            Publication Date: {formatDate(book.publishedAt)}
-          </p>
-          <div
-            className={`inline-block text-gray-700 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 ${
-              tagColors[book.category.length % tagColors.length]
-            }`}
-          >
-            {book.category}
+        <>
+          <div className="max-w-xl mx-auto mt-8 p-4 bg-white rounded-lg shadow-md">
+            <h1 className="text-3xl font-bold mb-4">{book.title}</h1>
+            <p className="text-gray-600 mb-2">Author: {book.author}</p>
+            <p className="text-gray-600 mb-2">
+              Publication Date: {formatDate(book.publishedAt)}
+            </p>
+            <div
+              className={`inline-block text-gray-700 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 ${
+                tagColors[book.category.length % tagColors.length]
+              }`}
+            >
+              {book.category}
+            </div>
+            <p className="text-gray-600 mb-2">
+              <strong>Description:</strong> {book.description}
+            </p>
           </div>
-          <p className="text-gray-600 mb-2">
-            <strong>Description:</strong> {book.description}
-          </p>
-        </div>
+          <div className="max-w-xl mx-auto mt-3">
+            <button
+              onClick={() => history.back()}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+            >
+              Go back
+            </button>
+          </div>
+        </>
       ) : null}
     </div>
   );
